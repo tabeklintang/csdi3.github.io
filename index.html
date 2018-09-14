@@ -39,6 +39,10 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
     id: 'mapbox.streets',
     accessToken: 'pk.eyJ1IjoidGFiZWstbGludGFuZyIsImEiOiJjam0xZ25jZHcwNDUxM3dxdHpuNHlibmlnIn0.lShjr-u8QNgD-ef8XnnlDg'
 }).addTo(mymap);
+
+L.control.mousePosition().addTo(mymap);
+
+
   </script>
   </body>
 </html>
