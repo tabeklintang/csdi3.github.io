@@ -2,43 +2,43 @@
 <html>
   <head>
  <title>Crowdsourcing Spatial Data Infrastructure</title>
-	  
+
 	  <!-- include Leaflet CSS file in the head section of your document: -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
    integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="crossorigin=""/>
-	  
-	  
+
+
 	   <!-- Make sure you put this AFTER Leaflet's CSS -->
  <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="crossorigin=""></script>
-	  
+
   </head>
 <body>
 <h1>Halo</h1>
 <h1>Uji Coba</h1>
 <p>I'm hosted with GitHub Pages.</p>
-   
+
   <!-- Put a div element with a certain id where you want your map to be: -->
 
 
 	<div id="mapid" style="width: 600px; height: 400px;"></div>
 
-  <!-- Make sure the map container has a defined height, for example by setting it in CSS: 
+  <!-- Make sure the map container has a defined height, for example by setting it in CSS:
 #mapid { height: 180px; } -->
 
 
   <script>
-  
+
  <!-- First we’ll initialize the map and set its view to our chosen geographical coordinates and a zoom level: padang -0.9°, 100.4° token: 'pk.eyJ1IjoidGFiZWstbGludGFuZyIsImEiOiJjam0xZ25jZHcwNDUxM3dxdHpuNHlibmlnIn0.lShjr-u8QNgD-ef8XnnlDg' -->
 
-var mymap = L.map('mapid').setView([51.505, -0.09], 13);
-  
-  
+var mymap = L.map('mapid').setView([-0.9, 100.4], 13);
+
+
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 18,
     id: 'mapbox.streets',
     accessToken: 'pk.eyJ1IjoidGFiZWstbGludGFuZyIsImEiOiJjam0xZ25jZHcwNDUxM3dxdHpuNHlibmlnIn0.lShjr-u8QNgD-ef8XnnlDg'
-}).addTo(mymap); 
+}).addTo(mymap);
   </script>
   </body>
 </html>
