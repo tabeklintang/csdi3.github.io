@@ -29,14 +29,16 @@
   
  <!-- First we’ll initialize the map and set its view to our chosen geographical coordinates and a zoom level: padang -0.9°, 100.4° token: pk.eyJ1IjoidGFiZWstbGludGFuZyIsImEiOiJjam0xZXppNW8wejUyM2twYWtnYXp1a3BjIn0.4FMQt6k91Tw33graxsDhYg-->
 
-var mymap = L.map('mapid').setView([-0.9, 100.4], 10);
+var mymap = L.map('mapid').setView([51.505, -0.09], 13);
   
   
-  L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 18,
     id: 'mapbox.streets',
     accessToken: 'pk.eyJ1IjoidGFiZWstbGludGFuZyIsImEiOiJjam0xZXppNW8wejUyM2twYWtnYXp1a3BjIn0.4FMQt6k91Tw33graxsDhYg'
 }).addTo(mymap);
+  
+  
   </body>
 </html>
