@@ -41,7 +41,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 }).addTo(mymap);
 
 	  var marker = L.marker([-0.9, 100.4]).addTo(mymap);
-	  marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
+	  marker.bindPopup("<b>Halo!</b><br>Tes popup.").openPopup();
 	  
 	  function onMapClick(e) {
     alert("You clicked the map at " + e.latlng);
