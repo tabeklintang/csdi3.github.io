@@ -1,72 +1,25 @@
-<!DOCTYPE html>
-<html>
-  <head>
- <title>Crowdsourcing Spatial Data Infrastructure</title>
+html>
+<head>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$.getJSON('http://search.twitter.com/search.json?q=earthquake&lang=en&callback=?', function(data) {
+		var data = data.results;
+		var html = "<ul>";	
+		for(var i=0; i<data.length; i++) {
+	    	html += "<li><a href='http://twitter.com/" + data[i].from_user + "'>@" 
+                      + data[i].from_user + "</a>: " + data[i].text + "</li>";
+		}
+		html += "</ul>"
+    	$('.content').html(html);
+	});
+});
+</script>
 
-	  <!-- include Leaflet CSS file in the head section of your document: -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
-   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="crossorigin=""/>
-
-	   <!-- Make sure you put this AFTER Leaflet's CSS -->
- <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="crossorigin=""></script>
-
-
-  </head>
+</head>
 <body>
-<h1>Halo</h1>
-<h1>Uji Coba</h1>
-<p>I'm hosted with GitHub Pages.</p>
-
-  <!-- Put a div element with a certain id where you want your map to be: -->
-
-
-	<div id="mapid" style="width: 600px; height: 400px;"></div>
-
-  <!-- Make sure the map container has a defined height, for example by setting it in CSS:
-#mapid { height: 180px; } -->
-
-
-  <script>
-
- <!-- First we’ll initialize the map and set its view to our chosen geographical coordinates and a zoom level: padang -0.9°, 100.4° token: 'pk.eyJ1IjoidGFiZWstbGludGFuZyIsImEiOiJjam0xZ25jZHcwNDUxM3dxdHpuNHlibmlnIn0.lShjr-u8QNgD-ef8XnnlDg' -->
-
-var mymap = L.map('mapid').setView([-0.9, 100.4], 13);
-
-
-L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    maxZoom: 18,
-    id: 'mapbox.streets',
-    accessToken: 'pk.eyJ1IjoidGFiZWstbGludGFuZyIsImEiOiJjam0xZ25jZHcwNDUxM3dxdHpuNHlibmlnIn0.lShjr-u8QNgD-ef8XnnlDg'
-}).addTo(mymap);
-
-	  var marker = L.marker([-0.9, 100.4]).addTo(mymap);
-	  marker.bindPopup("<b>Halo!</b><br>Tes popup.").openPopup();
-	  
-	  function onMapClick(e) {
-    alert("You clicked the map at " + e.latlng);
-}
-
-mymap.on('click', onMapClick);
-	  
-	  var popup = L.popup();
-
-function onMapClick(e) {
-    popup
-        .setLatLng(e.latlng)
-        .setContent("You clicked the map at " + e.latlng.toString())
-        .openOn(mymap);
-}
-
-mymap.on('click', onMapClick);
-	  
-<!--mousePosition-->
-
-L.control.mousePosition().addTo(mymap);
-
-	  <!--tweettrends-->
-	  <iframe marginheight='0' marginwidth='0' frameborder='0' style='overflow:hidden;width:1024px;height:768px;border:none;scrolling:no' src='https://www.trendsmap.com/v2/WIVq'></iframe>
-		  
-  </script>
-  </body>
+<h2>Twitter</h2>
+<div class="content">
+</div>
+</body>
 </html>
